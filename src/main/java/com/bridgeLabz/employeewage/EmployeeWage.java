@@ -7,12 +7,10 @@ public class EmployeeWage {
     public static final int N0_OF_WORKING_DAYS = 5;
     public static final int MAX_HRS_PER_MONTH = 100;
 
-    public static void main(String[] args) {
+    public int calculateEmpWage() {
+        int empHrs = 0, totalEmpWage = 0, totalEmpHrs = 0, totalWorkingDays = 0;
 
-        System.out.println("Welcome to Employee Wage Calculation Program");
-        int empHrs = 0 , totalEmpWage = 0 , totalEmpHrs = 0, totalWorkingDays = 0;
-
-        while ( totalEmpHrs <= MAX_HRS_PER_MONTH && totalWorkingDays < N0_OF_WORKING_DAYS ) {
+        while (totalEmpHrs <= MAX_HRS_PER_MONTH && totalWorkingDays < N0_OF_WORKING_DAYS) {
             totalWorkingDays++;
             int employeecheck = (int) Math.floor(Math.random() * 10) % 3;
             switch (employeecheck) {
@@ -26,10 +24,19 @@ public class EmployeeWage {
                     empHrs = 0;
             }
             totalEmpHrs += empHrs;
-            System.out.println("Day" +totalWorkingDays + " emp hrs is " +empHrs);
+            System.out.println("Day" + totalWorkingDays + " emp hrs is " + empHrs);
         }
         totalEmpWage = totalEmpHrs * RATE_PER_HOUR;
-        System.out.println("Total wage " +N0_OF_WORKING_DAYS + " is : " +totalEmpWage);
+        System.out.println("Total wage for " + N0_OF_WORKING_DAYS + " days is : " + totalEmpWage);
+        return totalEmpWage;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println("Welcome to Employee Wage Calculation Program");
+        EmployeeWage e1 = new EmployeeWage();
+        e1.calculateEmpWage();
+
     }
 
 }
